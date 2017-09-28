@@ -3,7 +3,6 @@ package com.dfmzone;
 public class Guitar {
 
     private String serialNumber;
-//    builder, type, backWood, topWood;
     private double price;
     private GuitarSpec guitarSpec;
 
