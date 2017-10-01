@@ -10,7 +10,7 @@ public class Main {
 
         initializeInventory(inventory);
 
-        System.out.println(inventory.getGuitar("000").getGuitarSpec());
+        System.out.println(inventory.getInstrument("000").getInstrumentSpec());
 
 //        System.out.println("Found => " + inventory.search(new Guitar("000", "Stratocaster", Type.ELECTRIC,
 //                Builder.FENDER, Wood.ALDER, Wood.ALDER, 1200.00)));
@@ -20,18 +20,18 @@ public class Main {
     }
 
     private static void initializeInventory(Inventory inventory) {
-        inventory.addGuitar("000", 1200.00, new GuitarSpec(Type.ELECTRIC, Builder.FENDER, Wood.ALDER, Wood.ALDER, "Stratocaster", 6));
-        inventory.addGuitar("123", 1299.00, new GuitarSpec(Type.ELECTRIC, Builder.FENDER, Wood.ALDER, Wood.ALDER, "Stratocaster", 6));
+        inventory.addInstrument("000", 1200.00, new GuitarSpec(Type.ELECTRIC, Builder.FENDER, Wood.ALDER, Wood.ALDER, "Stratocaster", 6));
+        inventory.addInstrument("123", 1299.00, new GuitarSpec(Type.ELECTRIC, Builder.FENDER, Wood.ALDER, Wood.ALDER, "Stratocaster", 6));
     }
 
-    private static void searchAndPrintGuitars(GuitarSpec guitarSpec, Inventory inventory) {
-        List<Guitar> guitarList = inventory.search(guitarSpec);
+    private static void searchAndPrintGuitars(InstrumentSpec spec, Inventory inventory) {
+        List<Instrument> guitarList = inventory.search(spec);
 
         if (!guitarList.isEmpty()) {
-            for (Guitar g : guitarList) {
-                System.out.println("\nFound a " + g.getGuitarSpec().getBuilder() + " " +
-                        g.getGuitarSpec().getModel() + " " + g.getGuitarSpec().getType() +
-                        " only $" + g.getPrice() + " serial number(" + g.getSerialNumber() + ")");
+            for (Instrument g : guitarList) {
+                System.out.println("\nFound a " + g.getInstrumentSpec().getBuilder() + " " +
+                        g.getInstrumentSpec().getModel() + " " + g.getInstrumentSpec().getType() + " For only" +
+                        " $" + g.getPrice());
             }
         }
     }

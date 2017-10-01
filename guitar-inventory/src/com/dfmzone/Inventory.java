@@ -5,15 +5,19 @@ import java.util.List;
 
 public class Inventory {
 
-    private List<Guitar> guitars = new ArrayList<>();
+    private List<Instrument> instrumentArrayList = new ArrayList<>();
 
-    public void addGuitar(String serialNumber, double price, GuitarSpec guitarSpec) {
+    public void addInstrument(String serialNumber, double price, InstrumentSpec spec) {
 
-        guitars.add(new Guitar(serialNumber, price, guitarSpec));
+        if(spec instanceof GuitarSpec) {
+            instrumentArrayList.add(new Guitar(serialNumber,price, spec));
+        } else if (spec instanceof MandolinSpec) {
+            instrumentArrayList.add(new Mandolin(serialNumber,price, spec));
+        }
     }
 
-    public Guitar getGuitar(String serialNumber) {
-        for (Guitar g : guitars) {
+    public Instrument getInstrument(String serialNumber) {
+        for (Instrument g : instrumentArrayList) {
             if (g.getSerialNumber().equals(serialNumber)) {
                 return g;
             }
@@ -24,7 +28,7 @@ public class Inventory {
 //    public List<Guitar> search(GuitarSpec guitarSpec) {
 //        ArrayList<Guitar> guitarsFound = new ArrayList<>();
 //
-//        for (Guitar g : guitars) {
+//        for (Guitar g : instrumentArrayList) {
 //            if (g.getGuitarSpec().getType().equals(guitarSpec.getType()) &&
 //                    g.getGuitarSpec().getBuilder().equals(guitarSpec.getBuilder())
 //                    && g.getGuitarSpec().getModel().equals(guitarSpec.getModel())) {
@@ -34,14 +38,14 @@ public class Inventory {
 //        return guitarsFound;
 //    }
 
-    public List<Guitar> search(GuitarSpec guitarSpec) {
-        List<Guitar> foundGuitars = new ArrayList<>();
+    public List<Instrument> search(InstrumentSpec instrumentSpec) {
+        List<Instrument> foundInstruments = new ArrayList<>();
 
-        for (Guitar g : guitars) {
-            if (guitarSpec.equals(g.getGuitarSpec())) {
-                foundGuitars.add(g);
+        for (Instrument g : instrumentArrayList) {
+            if (instrumentSpec.equals(g.getInstrumentSpec())) {
+                foundInstruments.add(g);
             }
         }
-        return foundGuitars;
+        return foundInstruments;
     }
 }
