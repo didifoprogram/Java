@@ -1,15 +1,21 @@
 package com.dfmzone;
 
-public abstract class Instrument {
+public class Instrument {
 
     private String serialNumber;
     private double price;
     private InstrumentSpec instrumentSpec;
+    private InstrumentType instrumentType;
 
-    public Instrument(String serialNumber, double price, InstrumentSpec instrumentSpec) {
+    public Instrument(String serialNumber, double price, InstrumentSpec instrumentSpec, InstrumentType instrumentType) {
         this.serialNumber = serialNumber;
         this.price = price;
         this.instrumentSpec = instrumentSpec;
+        this.instrumentType = instrumentType;
+    }
+
+    public InstrumentType getInstrumentType() {
+        return instrumentType;
     }
 
     public String getSerialNumber() {
@@ -34,6 +40,7 @@ public abstract class Instrument {
                 "serialNumber='" + serialNumber + '\'' +
                 ", price=" + price +
                 ", instrumentSpec=" + instrumentSpec +
+                ", instrumentType=" + instrumentType +
                 '}';
     }
 }
