@@ -31,6 +31,8 @@
 3. Implementation plan (How do i realize that feature in my system?)
 
 # Design Principles #
-1. The open-closed principle (OCP).
-2. Don't repeat yourself principle (DRY).
+### The open-closed principle (OCP) ###
+Classes should be open for extension, and closed for modification.
 
+### Don't repeat yourself principle (DRY) ###
+Avoid duplicate code by abstracting out things that are common and place those things in a single location.
