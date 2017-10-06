@@ -11,7 +11,7 @@ Indicates that an annotated class is a "Service", originally defined by Domain-D
 "an operation offered as an interface that stands alone in the model, with no encapsulated state."
 May also indicate that a class is a "Business Service Facade" (in the Core J2EE patterns sense), or something similar.
 This annotation is a general-purpose stereotype and individual teams may narrow their semantics and use as appropriate.
-This annotation serves as a specialization of @Component, allowing for implementation classes to be autodetected through
+This annotation serves as a specialization of `@Component`, allowing for implementation classes to be autodetected through
 classpath scanning.
 
 
@@ -20,15 +20,15 @@ This annotation can be used for injecting values into fields in Spring-managed b
 the field or constructor/method parameter level.
 Typically used for expression-driven dependency injection. Also supported for dynamic resolution of handler method
 parameters, e.g. in Spring MVC.
-A common use case is to assign default field values using "#{systemProperties.myProp}" style expressions.
+A common use case is to assign default field values using *"#{systemProperties.myProp}"* style expressions.
 
 
 ### `@Controller`
 indicates that an annotated class is a "Controller" (e.g. a web controller).
-This annotation serves as a specialization of @Component, allowing for implementation classes to be autodetected
+This annotation serves as a specialization of `@Component`, allowing for implementation classes to be autodetected
 through classpath scanning.
 It is typically used in combination with annotated handler methods based on the
-org.springframework.web.bind.annotation.RequestMapping annotation.
+*org.springframework.web.bind.annotation.RequestMapping* annotation.
 
 
 ### `@Autowired`
@@ -37,7 +37,7 @@ injection facilities.
 
 
 ### `@Configuration`
-Indicates that a class declares one or more ```@Bean``` methods and may be processed by the Spring
+Indicates that a class declares one or more `@Bean` methods and may be processed by the Spring
 container
 to generate bean definitions and service requests for those beans at runtime, for example:
 
@@ -55,7 +55,7 @@ to generate bean definitions and service requests for those beans at runtime, fo
 ### `@ComponentScan`
 `@ComponentScan` tells Spring in which packages you have annotated classes which should be managed by
 Spring.
-So, for example, if you have a class annotated with @Controller which is in a package which is not scanned by Spring,
+So, for example, if you have a class annotated with `@Controller` which is in a package which is not scanned by Spring,
 you will not be able to use it as Spring controller.
 
 
@@ -235,7 +235,7 @@ The names of the bean properties have to match the parameter names.
 Uses a Spring BeanWrapper for bean property access underneath.
 
 
-###`public class MapSqlParameterSource`
+### `public class MapSqlParameterSource`
 SqlParameterSource implementation that holds a given Map of parameters.
 This class is intended for passing in a simple Map of parameter values to the methods of the NamedParameterJdbcTemplate class.
 The addValue methods on this class will make adding several values easier.
