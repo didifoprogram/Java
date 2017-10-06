@@ -1,12 +1,12 @@
 ANNOTATIONS
 ===========
 
-#####@Component
+###`@Component`
 Indicates that an annotated class is a "component".
 Such classes are considered as candidates for auto-detection when using annotation-based configuration and classpath scanning.
 
 
-#####@Service
+###`@Service`
 Indicates that an annotated class is a "Service", originally defined by Domain-Driven Design (Evans, 2003) as
 "an operation offered as an interface that stands alone in the model, with no encapsulated state."
 May also indicate that a class is a "Business Service Facade" (in the Core J2EE patterns sense), or something similar.
@@ -15,7 +15,7 @@ This annotation serves as a specialization of @Component, allowing for implement
 classpath scanning.
 
 
-#####@Value
+###`@Value`
 This annotation can be used for injecting values into fields in Spring-managed beans and it can be applied at
 the field or constructor/method parameter level.
 Typically used for expression-driven dependency injection. Also supported for dynamic resolution of handler method
@@ -23,7 +23,7 @@ parameters, e.g. in Spring MVC.
 A common use case is to assign default field values using "#{systemProperties.myProp}" style expressions.
 
 
-#####@Controller
+###`@Controller`
 indicates that an annotated class is a "Controller" (e.g. a web controller).
 This annotation serves as a specialization of @Component, allowing for implementation classes to be autodetected
 through classpath scanning.
@@ -31,15 +31,16 @@ It is typically used in combination with annotated handler methods based on the
 org.springframework.web.bind.annotation.RequestMapping annotation.
 
 
-#####@Autowired
+###`@Autowired`
 Marks a constructor, field, setter method or config method as to be autowired by Spring's dependency
 injection facilities.
 
 
-#####@Configuration
+###`@Configuration`
 Indicates that a class declares one or more ```@Bean``` methods and may be processed by the Spring
 container
 to generate bean definitions and service requests for those beans at runtime, for example:
+
 ```java
 @Configuration
  public class AppConfig {
@@ -51,32 +52,29 @@ to generate bean definitions and service requests for those beans at runtime, fo
  }
 ```
 
-#####@ComponentScan
-```@ComponentScan``` tells Spring in which packages you have annotated classes which should be managed by
+###`@ComponentScan`
+`@ComponentScan` tells Spring in which packages you have annotated classes which should be managed by
 Spring.
 So, for example, if you have a class annotated with @Controller which is in a package which is not scanned by Spring,
 you will not be able to use it as Spring controller.
 
 
-#####@PropertySource
-```@PropertySource("classpath:application.properties")``` is an annotation to load your properties file
+###`@PropertySource`
+`@PropertySource("classpath:application.properties")` is an annotation to load your properties file
 when the application context of Spring is loaded, so it should be used in a configuration class, you need
 @Configuration
 
 
-####```@Bean```
+###`@Bean`
 A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container. 
 
 
-####```@RequestMapping```
+###`@RequestMapping`
 Annotation for mapping web requests onto specific handler classes and/or handler methods.
 Provides a consistent style between Servlet and Portlet environments, with the semantics adapting to the concrete environment.
 
 
-*******************************************************************
-
-
-#####public interface ApplicationContext
+###`public interface ApplicationContext`
 Central interface to provide configuration for an application. This is read-only while the application is running,
 but may be reloaded if the implementation supports this.
 An ApplicationContext provides:
@@ -89,7 +87,7 @@ for example, that a single parent context can be used by an entire web applicati
 while each servlet has its own child context that is independent of that of any other servlet.
 
 
-#####public ClassPathXmlApplicationContext(String configLocation)
+#####`public ClassPathXmlApplicationContext(String configLocation)`
 Create a new ClassPathXmlApplicationContext, loading the definitions from the given XML file and automatically
 refreshing the context.
 
@@ -98,33 +96,33 @@ BEANS XML
 =========
 
 
-Tag name: component-scan 
+###Tag name: **component-scan** 
 Description : Scans the classpath for annotated components that will be auto-registered as Spring beans. 
-By default, the Spring-provided @Component, @Repository, @Service, @Controller, @RestController, @ControllerAdvice,
-and @Configuration stereotypes will be detected.
+By default, the Spring-provided `@Component`, `@Repository`, `@Service`, `@Controller`, `@RestController`, `@ControllerAdvice`,
+and `@Configuration` stereotypes will be detected.
 
 
-Tag name: property-placeholder 
+###Tag name: **property-placeholder** 
 Description : Activates replacement of ${...} placeholders by registering a PropertySourcesPlaceholderConfigurer within
- the application context.
+the application context.
 Properties will be resolved against the specified properties file or Properties object -- so called "local properties",
 if any, and against the Spring Environment's current set of PropertySources.
 
 
-Tag name: bean 
+###Tag name: **bean** 
 Description : Defines a single (usually named) bean.
 A bean definition may contain nested tags for constructor arguments, property values, lookup methods, and replaced
 methods.
 Mixing constructor injection and setter injection on the same bean is explicitly supported.
 
 
-Tag name: property 
+###Tag name: **property** 
 Description : Bean definitions can have zero or more properties.
 Property elements correspond to JavaBean setter methods exposed by the bean classes.
 Spring supports primitives, references to other beans in the same or related factories, lists, maps and properties.
 
 
-Tag name: constructor-arg
+###Tag name: **constructor-arg**
 Description : Bean definitions can specify zero or more constructor arguments.
 This is an alternative to "autowire constructor".
 Arguments correspond to either a specific index of the constructor argument list or are supposed to
@@ -135,20 +133,20 @@ constructor-arg elements are also used in conjunction with the factory-method el
 or instance factory methods.
 
 
-Tag name: factory-method
+###Tag name: **factory-method**
 Description : The name of a factory method to use to create this object.
 Use constructor-arg elements to specify arguments to the factory method, if it takes arguments.
 Autowiring does not apply to factory methods.
 
 
-Tag name: factory-bean
+###Tag name: **factory-bean**
 Description : Alternative to class attribute for factory-method usage.
 If this is specified, no class attribute should be used.
 This must be set to the name of a bean in the current or ancestor factories that contains the relevant factory method.
 This allows the factory itself to be configured using Dependency Injection, and an instance (rather than static) method to be used.
 
 
-Tag name: scope
+###Tag name: **scope**
 Description : The scope of this bean: typically "singleton"
 (one shared instance, which will be returned by all calls to getBean with the given id),
 or "prototype" (independent instance resulting from each call to getBean).
@@ -157,24 +155,22 @@ the parent's scope.  Singletons are most commonly used, and are ideal for multi-
 Further scopes, such as "request" or "session", might be supported by extended bean factories (e.g. in a web environment).
 
 
-Tag name: annotation-config
-Description : Activates various annotations to be detected in bean classes: Spring's @Required and @Autowired,
-as well as JSR 250's @PostConstruct, @PreDestroy and @Resource (if available), JAX-WS's @WebServiceRef (if available),
-EJB 3's @EJB (if available), and JPA's @PersistenceContext and @PersistenceUnit (if available).
+###Tag name: **annotation-config**
+Description : Activates various annotations to be detected in bean classes: Spring's `@Required` and `@Autowired`,
+as well as JSR 250's `@PostConstruct`, `@PreDestroy` and `@Resource` (if available), JAX-WS's @WebServiceRef (if available),
+EJB 3's `@EJB` (if available), and JPA's `@PersistenceContext` and `@PersistenceUnit` (if available).
 Alternatively, you may choose to activate the individual BeanPostProcessors for those annotations.
-Note: This tag does not activate processing of Spring's @Transactional or EJB 3's @TransactionAttribute annotation.
+Note: This tag does not activate processing of Spring's `@Transactional` or EJB 3's `@TransactionAttribute` annotation.
 Consider the use of the <tx:annotation-driven> tag for that purpose.
 
+PERSISTENCE
+===========
 
-*******************************************************************
-
-
-*********************** PERSISTENCE *******************************
-
-@Repository => @Repository is a specialized @Component and are used for the persistent layer.
+###`@Repository`
+`@Repository` is a specialized `@Component` and are used for the persistent layer.
 
 
- => public interface RowMapper<T>
+###`public interface RowMapper<T>`
 An interface used by JdbcTemplate for mapping rows of a ResultSet on a per-row basis. Implementations of this interface
 perform the actual work of mapping each row to a result object, but don't need to worry about exception handling.
 SQLExceptions will be caught and handled by the calling JdbcTemplate.
@@ -184,7 +180,7 @@ Alternatively, consider subclassing MappingSqlQuery from the jdbc.object package
 JdbcTemplate and RowMapper objects, you can build executable query objects (containing row-mapping logic) in that style.
 
 
- => public class JdbcTemplate
+###`public class JdbcTemplate`
 This is the central class in the JDBC core package. It simplifies the use of JDBC and helps to avoid common errors.
 It executes core JDBC workflow, leaving application code to provide SQL and extract results.
 This class executes SQL queries or updates, initiating iteration over ResultSets and catching JDBC exceptions and
@@ -204,7 +200,7 @@ All SQL operations performed by this class are logged at debug level, using "org
 .JdbcTemplate" as log category.
 
 
- => public interface DataSource
+###`public interface DataSource`
 A factory for connections to the physical data source that this DataSource object represents. An alternative to the
  DriverManager facility, a DataSource object is the preferred means of getting a connection.
 An object that implements the DataSource interface will typically be registered with a naming service based on the
@@ -217,8 +213,7 @@ Distributed transaction implementation -- produces a Connection object that may 
 and almost always participates in connection pooling.
 This implementation works with a middle-tier transaction manager and almost always with a connection pooling manager.
 
-
- => public class NamedParameterJdbcTemplate
+###`public class NamedParameterJdbcTemplate`
 Template class with a basic set of JDBC operations, allowing the use of named parameters rather than traditional '?'
 placeholders.
 This class delegates to a wrapped JdbcTemplate once the substitution from named parameters to JDBC style '?'
@@ -226,7 +221,7 @@ placeholders is done at execution time. It also allows for expanding a List of v
 placeholders.
 
 
- => public interface SqlParameterSource
+###`public interface SqlParameterSource`
 Interface that defines common functionality for objects that can offer parameter values for named SQL parameters,
 serving as argument for NamedParameterJdbcTemplate operations.
 This interface allows for the specification of SQL type in addition to parameter values.
@@ -234,50 +229,31 @@ All parameter values and types are identified by specifying the name of the para
 Intended to wrap various implementations like a Map or a JavaBean with a consistent interface.
 
 
- => public class BeanPropertySqlParameterSource
+###`public class BeanPropertySqlParameterSource`
 SqlParameterSource implementation that obtains parameter values from bean properties of a given JavaBean object.
 The names of the bean properties have to match the parameter names.
 Uses a Spring BeanWrapper for bean property access underneath.
 
 
- => public class MapSqlParameterSource
+###`public class MapSqlParameterSource`
 SqlParameterSource implementation that holds a given Map of parameters.
 This class is intended for passing in a simple Map of parameter values to the methods of the NamedParameterJdbcTemplate class.
 The addValue methods on this class will make adding several values easier.
 The methods return a reference to the MapSqlParameterSource itself,
 so you can chain several method calls together within a single statement.
-**************************************************************
 
 
+WEB XML
+=======
 
+###Complex type: **display-nameType**
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-************************ WEB XML ********************************
-
-
-Complex type: display-nameType
 Description : [ The display-name type contains a short name that is intended to be displayed by tools.
 It is used by display-name elements. The display name need not be unique.
 
 
-Tag name: load-on-startup
+###Tag name: **load-on-startup**
+
 Description : The load-on-startup element indicates that this servlet should be loaded
 (instantiated and have its init() called) on the startup of the web application.
 The optional contents of these element must be an integer indicating the order in which the servlet should be loaded.
