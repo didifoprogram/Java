@@ -81,3 +81,17 @@ Design Principles
 
 Sub types must be substitute for their base types.
 
+Iterating
+=========
+
+- **Feature driven development**
+  - Work on a single feature at time, and then iterate, knocking off features one at time until you've
+  finished up the functionality of an application.
+  
+- **Use case driven development**
+  - With **use case driven development**, you work on completing a single scenario through a use case.
+  Then you take another scenario and work through it, until all of the use case scenarios are complete.
+  Then you iterate to the next use case, until all the use cases are working.
+  
+- **Test driven development**
+  - Focuses on getting the behaviour of your classes right. 
