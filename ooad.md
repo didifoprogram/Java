@@ -81,8 +81,8 @@ Design Principles
 
 Sub types must be substitute for their base types.
 
-Iterating
-=========
+Iterating and Testing
+=====================
 
 - **Feature driven development**
   - Work on a single feature at time, and then iterate, knocking off features one at time until you've
@@ -95,3 +95,14 @@ Iterating
   
 - **Test driven development**
   - Focuses on getting the behaviour of your classes right. 
+ 
+ Programming practices
+ ====================
+ 
+- **Programming by contract**
+  - Programming by contract sets up an agreement about how your software behaves that you and users of
+  your software agree to abide by.
+
+- **Programming defensively**
+  - Defensive programming doesn't trust other software, and does extensive error and data checking
+  to ensure the other software doesn't give you bad or unsafe information. (CHECKED exceptions)
