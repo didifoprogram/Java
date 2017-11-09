@@ -56,7 +56,7 @@ Design Principles
     final class Car {
       private final Engine engine;
       Car(EngineSpecs specs) {
-        engine = new Engine(specs);
+        engine = new Engine(specs); <-- here you create the engine
       }
       void move() {
         engine.work();
@@ -69,7 +69,7 @@ Design Principles
     final class Car {
       private Engine engine;
       void setEngine(Engine engine) {
-        this.engine = engine;
+        this.engine = engine; <-- here the engine is passed by the parameter
       }
       void move() {
         if (engine != null)
