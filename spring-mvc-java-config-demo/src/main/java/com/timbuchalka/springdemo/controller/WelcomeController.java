@@ -21,7 +21,7 @@ public class WelcomeController {
 		
 		// 1. Retrieving the processed data
 //		WelcomeServicervice welcomeService = new WelcomeService();
-		List<String> welcomeMessage = welcomeService.getWelcomeMessage("Tim Buchalka");
+		List<String> welcomeMessage = welcomeService.getWelcomeMessage("Diego");
 		
 		// 2.  Add data to the model
 		model.addAttribute("myWelcomeMessage", welcomeMessage);
