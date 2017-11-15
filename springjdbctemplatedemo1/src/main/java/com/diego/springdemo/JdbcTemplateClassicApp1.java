@@ -21,7 +21,7 @@ public class JdbcTemplateClassicApp1 {
         boolean create = dao.create(ge);
         DaoUtils.printSuccessFailure(DaoUtils.createOperation, create);
 
-        DaoUtils.deleteData(dao, ge, DaoUtils.deleteOperation);
+//        DaoUtils.deleteData(dao, ge, DaoUtils.deleteOperation);
 
         DaoUtils.printOrganizations(dao.getAllOrganizations(), DaoUtils.readOperation);
 

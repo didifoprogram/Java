@@ -13,16 +13,21 @@
 	<context:component-scan
 		base-package="com.diego.springdemo.controller">
 	</context:component-scan>
-	<mvc:annotation-driven></mvc:annotation-driven>
+	<mvc:annotation-driven/>
 	<bean id="randomizer1"
-		class="com.diego.springdemo.service.RandomizerRequestScope"
+		class="com.diego.springdemo.service.RandomizeRequestScope"
 		scope="request">
 	<aop:scoped-proxy />
 	</bean>
 
 	<bean id="randomizer2"
-		class="com.diego.springdemo.service.RandomizerSessionScope"
+		class="com.diego.springdemo.service.RandomizeSessionScope"
 		scope="session">
 	<aop:scoped-proxy />
 	</bean>
+
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/view/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
 </beans>

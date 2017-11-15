@@ -10,7 +10,7 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <description></description>
+    <description/>
     <display-name>Web Scope Demo</display-name>
     <servlet-name>webScopeDemo</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

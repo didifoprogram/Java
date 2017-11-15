@@ -24,14 +24,14 @@ public class Organization {
         System.out.println("constructor called");
     }
 
-    // public void initialize() {
-    // System.out.println("organization: initialize method called");
-    // }
-    //
-    // public void destroy() {
-    // System.out.println("organization: destroy method called");
-    //
-    // }
+//     public void initialize() {
+//     System.out.println("organization: initialize method called");
+//     }
+//
+//     public void destroy() {
+//     System.out.println("organization: destroy method called");
+//
+//     }
 
     public void postConstruct() {
         System.out.println("organization: postConstruct called...............");

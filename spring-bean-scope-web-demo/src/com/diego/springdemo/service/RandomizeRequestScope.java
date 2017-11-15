@@ -1,7 +1,7 @@
 package com.diego.springdemo.service;
 
-public class RandomizerSessionScope {
-	private int randomNumber = 10;
+public class RandomizeRequestScope {
+	private int randomNumber = 5;
 	
 	public int getRandomNumber() {
 		return this.randomNumber;

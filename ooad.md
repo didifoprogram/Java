@@ -49,7 +49,7 @@ Design Principles
 
 - Every object in your system should have a single responsibility, and all the object's services should be focused on carrying out that single responsibility.
 
-**Composition && Aggregation**
+**Composition and Aggregation**
 
 - Composition
 ```java
