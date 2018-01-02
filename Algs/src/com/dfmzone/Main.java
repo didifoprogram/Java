@@ -8,9 +8,9 @@ public class Main {
 
         SinglyLinkedList<String> linkedList = new SinglyLinkedList<>();
 
-        linkedList.addFirst("Diego");
-        linkedList.addFirst("Fernandes");
-        linkedList.addLast("Mayoral");
+        linkedList.addFirst("ONE");
+        linkedList.addFirst("TWO");
+        linkedList.addLast("THREE");
 
 
         System.out.println(linkedList.size());
