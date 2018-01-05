@@ -25,14 +25,6 @@ public class InsertionSort {
 
     // ['a', 'f', 'c', 'h', 'e']
     private static void insertionSort2(char[] data) {
-        for (int k = 1; k < data.length; k++) {
-            char curr = data[k];
-            int j = k;
-            while (j > 0 && data[j -1] > curr) {
-                data[j] = data[j - 1];
-                j--;
-            }
-            data[j] = curr;
-        }
+
     }
 }
