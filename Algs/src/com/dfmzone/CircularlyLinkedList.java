@@ -31,9 +31,9 @@ public class CircularlyLinkedList<E> {
     public CircularlyLinkedList() {
     }
 
-    public int size() {
-        return size;
-    }
+//    public int size() {
+//        return size;
+//    }
 
     public boolean isEmpty() {
         return size == 0;
@@ -60,8 +60,7 @@ public class CircularlyLinkedList<E> {
             tail = new Node<>(e, null);
             tail.setNext(tail);
         } else {
-            Node<E> newest = new Node<>(e, tail.getNext());
-            tail.setNext(newest);
+            tail.setNext(new Node<>(e, tail.getNext()));
         }
         size++;
     }
@@ -84,8 +83,17 @@ public class CircularlyLinkedList<E> {
         return head.getElement();
     }
 
-
-
+    public int size() {
+        int s = 1;
+        if (isEmpty()) return 0;
+        Node<E> t = tail;
+        while (tail.getNext() != t) {
+            s++;
+            tail = tail.getNext();
+        }
+        tail = t;
+        return s;
+    }
 
 
 

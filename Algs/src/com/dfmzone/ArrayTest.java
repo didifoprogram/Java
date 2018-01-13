@@ -1,5 +1,6 @@
 package com.dfmzone;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -21,5 +22,14 @@ public class ArrayTest {
 
         System.out.println("orig " + Arrays.toString(orig));
         System.out.println("data " + Arrays.toString(data));
+
+        // Linear num generator
+        int cur = 92;
+        for (int k = 0; k < 25; k++) {
+            cur = (12 * cur + 5) % 100;
+            System.out.println(cur);
+        }
+        System.out.println();
+        System.out.println(0x30);
     }
 }

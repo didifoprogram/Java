@@ -19,15 +19,16 @@ public class TicTacToe {
         player = X; // player X is first
     }
 
-    public void putMark(int i, int j) throws IllegalArgumentException {
+    public void putMark(int i, int j) throws IllegalArgumentException, IllegalStateException {
         if (i < 0 || j < 0 || i > 2 || j > 2) {
-            throw new IllegalArgumentException("Invalid board position > [" + i + "|" + j + "]");
-        }
-        if (board[i][j] != EMPTY) {
+            throw new IllegalArgumentException("Invalid board position at [" + i + "|" + j + "]");
+        } else if (board[i][j] != EMPTY) {
             throw new IllegalArgumentException("Cell is not empty");
+        } else if (winner() != 0) {
+            throw new IllegalStateException("You can't put a mark at " + "[" + i + "|" + j + "]" + ", the game already have a winner");
         }
         board[i][j] = player;
-        player = -player;
+        player = -player; // --1
     }
 
     private boolean isWin(int mark) {
@@ -84,6 +85,10 @@ public class TicTacToe {
         game.putMark(0, 1);
         game.putMark(2, 0);
         game.putMark(0, 2);
+        game.putMark(2,2);
+        game.putMark(0,0);
+        game.putMark(1,0);
+
         System.out.println(game);
         System.out.println();
         System.out.println("WINNER  > > > > " +game.winner());

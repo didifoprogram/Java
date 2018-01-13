@@ -44,8 +44,19 @@ public class DoublyLinkedList<E> {
         header.setNext(trailer);
     }
 
+//    public int size() {
+//        return size;
+//    }
+
     public int size() {
-        return size;
+        int s = 0;
+        Node<E> h = header;
+        while (header.getNext() != trailer) {
+            s++;
+            header = header.getNext();
+        }
+        header = h;
+        return s;
     }
 
     public boolean isEmpty() {
