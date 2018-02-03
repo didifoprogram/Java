@@ -1,0 +1,43 @@
+.movie {
+    background-color: lightgray
+}
+
+.pa {
+    padding-top: 40px;
+}
+
+body {
+    font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
+}
+
+a, a:active, a:focus {
+    outline: none;
+}
+
+/*img {*/
+
+    /*border: 3px solid black;*/
+    /*margin-right: 15px;*/
+    /*margin-top: 15px;*/
+    /*padding: 3px;*/
+
+/*}*/
+
+/*.img-border {*/
+    /*border: 3px solid black;*/
+/*}*/
+
+.liBorder {
+    border: 3px solid black;
+    margin-right: 5px;
+    margin-top: 15px;
+    padding: 2px;
+}
+
+.movieN {
+    margin-top: 25px;
+}
+
+.editRemoveBtn {
+    padding: 1px;
+}
