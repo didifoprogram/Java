@@ -12,7 +12,7 @@ public class Main {
         repeat2('a', 500000);
         long end = System.currentTimeMillis();
         System.out.println("Time: " + (end - start));
-
+dd
         double[] arr = {10, 15, 20, 25, 35};
         int[] arr2 = {1, 2, 10, 40, 20, 12, 55};
         System.out.println(Arrays.toString(prefixAverage2(arr)));

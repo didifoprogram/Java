@@ -138,7 +138,7 @@ public class Recur {
     private static int productRecur2(int a, int b) {
         if (a == 0 || b == 0) return 0;
         if (a == 1) return b;
-        return b + productRecur2(a - 1, b);
+        return b * productRecur2(a - 1, b);
     }
 
 
