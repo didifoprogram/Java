@@ -14,6 +14,13 @@ public class ArrayList<E> implements List<E> {
         data = (E[]) new Object[capacity];
     }
 
+    protected void resize(int capacity) {
+        E[] temp = (E[]) new Object[capacity];
+        for (int k=0; k<size; k++)
+            temp[k] = data[k];
+        data = temp;
+    }
+
     //public methods
     public int size() { return size;}
     public boolean isEmpty() {return size == 0;}
@@ -21,6 +28,8 @@ public class ArrayList<E> implements List<E> {
         checkIndex(i, size);
         return data[i];
     }
+
+    // Replace element and return the replaced.
     public E set(int i, E e) throws IndexOutOfBoundsException {
         checkIndex(i, size);
         E temp = data[i];
@@ -28,8 +37,11 @@ public class ArrayList<E> implements List<E> {
         return temp;
     }
 
+    // Inserts element e in the index i, shifting all subsequent elements later.
     public void add(int i, E e) throws IndexOutOfBoundsException, IllegalStateException {
         checkIndex(i, size + 1);
+        if (size == data.length)
+            resize(size*2);
         if (size == data.length)
             throw new IllegalStateException("Array is full");
         for (int k = size-1; k >= i; k--)
@@ -38,6 +50,7 @@ public class ArrayList<E> implements List<E> {
         size++;
     }
 
+    // Remove element at index i and shift
     public E remove(int i) throws IndexOutOfBoundsException {
         checkIndex(i, size);
         E temp = data[i];
