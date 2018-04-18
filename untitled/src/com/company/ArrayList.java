@@ -14,6 +14,7 @@ public class ArrayList<E> implements List<E> {
         data = (E[]) new Object[capacity];
     }
 
+    @SuppressWarnings("unchecked")
     protected void resize(int capacity) {
         E[] temp = (E[]) new Object[capacity];
         for (int k=0; k<size; k++)
