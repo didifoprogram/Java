@@ -39,8 +39,36 @@ public class Main {
         System.out.println(matrixElementsSum(bb));
 
 
-        System.out.print(6 << 2);
+        System.out.println("???? " + commonCharacterCount1("abcaaaaa", "axyzbac"));
     }
+
+    static int commonCharacterCount1(String s1, String s2) {
+        int[] a = new int[26],
+                b = new int[26];
+        for (char c : s1.toCharArray())
+            a[c - 'a']++;
+        for (char c : s2.toCharArray())
+            b[c - 'a']++;
+        int s = 0;
+        for (int i = 0; i < 26; ++i)
+            s += Math.min(a[i], b[i]);
+        return s;
+
+    }
+
+    static int commonCharacterCount(String s1, String s2) {
+        StringBuilder sb = new StringBuilder(s2);
+        int c = 0;
+        for (int i = 0; i < s1.length(); i++) {
+            if (sb.indexOf(s1.substring(i, i + 1)) != -1) {
+                sb.deleteCharAt(sb.indexOf(s1.substring(i, i + 1)));
+                c++;
+            }
+        }
+
+        return c;
+    }
+
 
     static String[] allLongestStrings(String[] inputArray) {
         int b = 0;
